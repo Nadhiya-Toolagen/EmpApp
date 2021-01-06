@@ -1,0 +1,36 @@
+<app-test-count  [All]='getTotal()'
+[Female]='getfemaleTotal()'
+[Male]='getmaleTotal()'
+(OnSelect)='OnSelectedRadioChange($event)'>
+</app-test-count>
+<br>
+<br>
+<table>
+    <thead>
+        <th>Index</th>
+        <th>ROLL NO</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>IsFirst</th>
+            <th>IsLast</th>
+            <th>IsEven</th>
+            <th>IsOdd</th>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let list of student;let isFirst=first;let isLast=last;let isEven=even;let isOdd=odd;let i=index;">
+            <tr *ngIf="SelectedRadioValue=='All' || SelectedRadioValue==list.Gender">
+            <td>{{i}}</td>
+            <td>{{list.Rollno }}</td>
+            <td>{{list.Name | append:list.Gender }}</td>
+            <td>{{list.DOB | date:'dd-MM-yyyy' }}</td>
+            <td>{{list.Gender}}</td>
+            <td>{{isFirst}}</td>
+            <td>{{isLast}}</td>
+            <td>{{isEven}}</td>
+            <td>{{isOdd}}</td>
+        </tr>
+        </ng-container>
+       
+    </tbody>
+</table>

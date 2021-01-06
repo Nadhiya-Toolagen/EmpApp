@@ -1,0 +1,25 @@
+<h1>EMPLOYEE LIST</h1>
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Second Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let el of Emplist;trackBy:trackByFirstName;">
+            <td>{{el.FirstName}}</td>
+            <td>{{el.SecondName}}</td>
+            <td>{{el.Gender}}</td>
+            <td>{{el.Age}}</td>
+
+        </tr>
+        <tr *ngIf= "!Emplist || Emplist.length==0" > 
+            <td colspan=4>No Details</td>
+        </tr>
+    </tbody>
+</table>
+<button (click)='getEmplist()'> Refresh List</button>

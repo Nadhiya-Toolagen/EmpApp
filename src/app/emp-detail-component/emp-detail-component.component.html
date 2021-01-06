@@ -1,0 +1,67 @@
+
+    <h2>Name: {{getFullName()}}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th [attr.colspan]='colspan'>EMPLOYEE DETAILS</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+            <label >FirstName:</label> 
+            </td>
+            <td>
+                {{FirstName}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <label >LastName:</label> 
+            </td>
+            <td>
+                {{ SecondName}}
+            </td>
+        </tr>
+        <tr *ngIf='showDetails'>
+            <td>
+            <label >Age:</label> 
+            </td>
+            <td>
+                {{Age}}
+            </td>
+        </tr>
+        <tr *ngIf='showDetails'>
+            <td>
+            <label >Gender:</label> 
+            </td>
+            <td>
+                {{Gender}}
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    <button  on-click="toggleDetails()" [ngClass]='applyClass()' [ngStyle]='applyStyle()' class="ColorClass">  
+        {{ showDetails ? "Hide":"Show"}} Details
+    </button>
+
+
+    <div>
+        <h1>Fill Detail</h1>
+        <div><label>First name :
+              <input [(ngModel)]='FirstName'>
+        </label></div>
+<br><br>
+        <div><label>Second Name :
+            <input [(ngModel)]='SecondName'>
+      </label></div>
+<br><br>
+      <div><label>Gender :
+        <input  [(ngModel)]='Gender'>
+  </label></div>
+<br><br>
+  <div><label>Age :
+    <input  [(ngModel)]='Age'>
+</label></div>
+    </div>
+
